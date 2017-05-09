@@ -54,8 +54,8 @@ BinPackParameters: false
 #控制单独的大括号换行事件
 BreakBeforeBraces: Custom
 BraceWrapping:
-	AfterClass: true
-	AfterControlStatement: false
+    AfterClass: true
+    AfterControlStatement: false
     AfterEnum: false
     AfterFunction: false
     AfterNamespace: true
