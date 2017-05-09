@@ -1,90 +1,140 @@
 ---
 # Custom options in the special build of clang-format (these are not standard options)
-IndentNestedBlocks: false
-AllowNewlineBeforeBlockParameter: false
+#基础样式
+#BasedOnStyle: LLVM
 
-Language:        Cpp
-# BasedOnStyle:  Google
-AccessModifierOffset: -1
-ConstructorInitializerIndentWidth: 4
-SortIncludes: false
+#这种格式针对的是语言。
+Language: Cpp
 
+#缩进宽度
+IndentWidth: 4
+
+#在一个左圆括号后水平对齐参数
 AlignAfterOpenBracket: true
+
+#将转义的换行符尽可能地向左排列
 AlignEscapedNewlinesLeft: true
+
+#表达式被分割为多行
 AlignOperands: false
-AlignTrailingComments: true
 
+#左对齐单行注释
+AlignTrailingComments: false
+
+#多行声明语句按照=对齐
+AlignConsecutiveDeclarations: true
+
+#允许将函数声明的所有参数换行显示
 AllowAllParametersOfDeclarationOnNextLine: false
-AllowShortBlocksOnASingleLine: false
-AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: true
-AllowShortIfStatementsOnASingleLine: true
-AllowShortFunctionsOnASingleLine: All
-AllowShortLoopsOnASingleLine: true
 
-AlwaysBreakAfterDefinitionReturnType: false
-AlwaysBreakTemplateDeclarations: false
+#允许将简单的支持语句合并到一行
+AllowShortBlocksOnASingleLine: false
+
+#允许case语句表达式在同一行显示
+AllowShortCaseLabelsOnASingleLine: false
+
+#允许方法单行
+AllowShortFunctionsOnASingleLine: false
+
+#允许if表达式单行
+AllowShortIfStatementsOnASingleLine: false
+
+#允许循环单行
+AllowShortLoopsOnASingleLine: false
+
+#多行字符串被打断
 AlwaysBreakBeforeMultilineStrings: false
 
-BreakBeforeBinaryOperators: None
-BreakBeforeTernaryOperators: false
-BreakConstructorInitializersBeforeComma: false
+#函数调用的参数是否在同一行上(true)，或换行显示(false)
+BinPackArguments: false
 
-BinPackArguments: true
-BinPackParameters: true
-ColumnLimit: 0
-ConstructorInitializerAllOnOneLineOrOnePerLine: true
-DerivePointerAlignment: false
-ExperimentalAutoDetectBinPacking: false
-IndentCaseLabels: true
-IndentWrappedFunctionNames: false
-IndentFunctionDeclarationAfterType: false
-MaxEmptyLinesToKeep: 2
-KeepEmptyLinesAtTheStartOfBlocks: false
-NamespaceIndentation: Inner
-ObjCBlockIndentWidth: 4
-ObjCSpaceAfterProperty: true
-ObjCSpaceBeforeProtocolList: true
-PenaltyBreakBeforeFirstCallParameter: 10000
-PenaltyBreakComment: 300
-PenaltyBreakString: 1000
-PenaltyBreakFirstLessLess: 120
-PenaltyExcessCharacter: 1000000
-PenaltyReturnTypeOnItsOwnLine: 200
-PointerAlignment: Right
-SpacesBeforeTrailingComments: 1
-Cpp11BracedListStyle: true
-Standard:        Auto
-IndentWidth:     4
-TabWidth:        8
-UseTab:          Never
+#函数声明或函数定义的参数将都在同一行上(true)，或各有一行(false)
+BinPackParameters: false
+
+#控制单独的大括号换行事件
 BreakBeforeBraces: Custom
-BraceWrapping: 
-    AfterClass: true
-    AfterControlStatement: false
+BraceWrapping:
+	AfterClass: true
+	AfterControlStatement: false
     AfterEnum: false
-    AfterFunction: true
+    AfterFunction: false
     AfterNamespace: true
-    AfterObjCDeclaration: true
+    AfterObjCDeclaration: false
     AfterStruct: false
     AfterUnion: false
     BeforeCatch: false
     BeforeElse: false
     IndentBraces: false
 
-SpacesInParentheses: false
-SpacesInSquareBrackets: false
-SpacesInAngles:  false
-SpaceInEmptyParentheses: false
-SpacesInCStyleCastParentheses: false
-SpaceAfterCStyleCast: false
-SpacesInContainerLiterals: true
+#二进制操作符换行的方法
+BreakBeforeBinaryOperators: None
+
+#三元运算符换行操作方法(true-带符号换行)
+BreakBeforeTernaryOperators: false
+
+#在逗号和对齐逗号跟冒号前把构造函数初始化式换行
+BreakConstructorInitializersBeforeComma: false
+
+#每一行限制字符的长度，0意味着没有限制
+ColumnLimit: 0
+
+#如果构造函数初始化器不适合在一行，把每个初始化放到单独的行
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+
+#使用构造函数初始化列表缩进的字符数
+ConstructorInitializerIndentWidth: 4
+
+#如果为true,格式化大括号列表达最适合c++11列表
+Cpp11BracedListStyle: true
+
+#如果为true, 分析最常见的格式化文件中“&”和“\*”的对齐方式。pointeralignment则仅作为后备。
+DerivePointerAlignment: false
+
+#switch语句缩进case标签一级
+IndentCaseLabels: true
+
+#是否缩进类型之后函数定义或声明
+IndentWrappedFunctionNames: false
+
+#如果为true, 保持块的起始空行
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+#连续的空行保留几行
+MaxEmptyLinesToKeep: 1
+
+#用于命名空间的缩排
+NamespaceIndentation: Inner
+
+#OC块中blocks的缩进字符数
+ObjCBlockIndentWidth: 4
+
+#在OC中的@property后面添加一个空格
+ObjCSpaceAfterProperty: true
+
+#在OC协议列表前添加一个空格
+ObjCSpaceBeforeProtocolList: true
+
+#指针和引用的对其方式
+PointerAlignment: Right
+
+#括号后添加空格
+SpaceAfterCStyleCast: true
+
+##等号两边的空格
 SpaceBeforeAssignmentOperators: true
 
-ContinuationIndentWidth: 4
-CommentPragmas:  '^ IWYU pragma:'
-ForEachMacros:   [ foreach, Q_FOREACH, BOOST_FOREACH ]
+#大括号之前的空格
 SpaceBeforeParens: ControlStatements
+
+#在“（）”中插入空格
+SpaceInEmptyParentheses: false
+
+#单行注释前的空格数，这不会影响块注释(/* - comments)，因为它们通常会有不同的使用模式和一些特殊情况
+SpacesBeforeTrailingComments: 1
+
+#tab键盘的宽度
+TabWidth: 4
+UseTab: Never
 DisableFormat:   false
 ...
 
